@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>查找未接龙幼儿姓名</title>
+        <style>
+            #imgBox{
+                width:100%;
+                height: 100%;
+                border:1px solid #000;
+            }
+            .upDateImg{
+                height: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>班级名单：</p>
+        <textarea id="list" rows="10" cols="30">李晨冉,张燊塇,古梓硕,沈林北,李璟昊,王嘉童,潘浩嘉,孙骁,石璟岩,孙溪远,李昕瑜,李秉岳,王羲庭,曹晏祎,车佳鸿,刘纯希,邢睿涵,吴子祎,耿庆贤,刘芷岑,刘嘉洛,孙芸熙,张泽平,裴雅祺,龚笥桐,郝奕丹,李昊泽,李梓钰洋,闵婧钰,刘懿杨,吕微,琬凝,琬潼,王佑祎</textarea><br>
+        <p>微信中复制的接龙信息：</p>
+        <p><textarea id="copy" rows="10" cols="30"></textarea></p>
+        <button onclick="find()">查找未接龙幼儿姓名</button>
+        <p id="result"></p>
+    </body>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://g.alicdn.com/mtb/lib-windvane/3.0.6/windvane.js"></script>
+    <script>
+        function find(){
+          document.getElementById("result").innerHTML = '';
+          
+          var list = document.getElementById("list").value;
+          var copy = document.getElementById("copy").value;
+          var names = list.split(",");
+          var tip = '';
+          for (var i=0;i<names.length;i++)
+          { 
+            if(copy.indexOf(names[i]) == -1){
+              tip = tip + names[i] + ',';
+            }
+          }
+          if(tip.length == 0){
+            alert('均已填报');
+          }else{
+            document.getElementById("result").innerHTML = tip;
+          }
+        }
+    </script>
+</html>
